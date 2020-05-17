@@ -1,0 +1,13 @@
+.Profile {
+    grid-area: content;
+    background-color: bisque;
+}
+
+.Posts {
+    color: gray;
+    margin: 20px;
+}
+
+.Item {
+    font-size: 24px;
+}

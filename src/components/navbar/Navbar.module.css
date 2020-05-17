@@ -1,0 +1,11 @@
+.Navigation {
+    grid-area: navigation;
+    background-color: beige;
+}
+
+.Item {
+    margin: 20px;
+    font-size: 32px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
