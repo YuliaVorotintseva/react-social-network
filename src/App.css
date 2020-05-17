@@ -1,0 +1,31 @@
+.app-wrapper {
+  width: 1920px;
+  margin: 0 auto;
+  
+  display: grid;
+  grid-template-areas:
+  "head head"
+  "navigation content";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+
+.content {
+  grid-area: content;
+  background-color: bisque;
+}
+
+.head {
+  grid-area: head;
+  background-color: aquamarine;
+}
+
+.head img {
+  width: 50px;
+}
+
+.navigation {
+  grid-area: navigation;
+  background-color: beige;
+}
