@@ -5,7 +5,7 @@ import Item from './item/Item'
 const Items = () => {
     return (
         <div className={styleClasses.Items}>
-            <Item name='Slava' isActive={true} />
+            <Item name='Slava' />
             <Item name='Misha' />
             <Item name='Sasha' />
         </div>

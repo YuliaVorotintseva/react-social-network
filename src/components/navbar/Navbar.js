@@ -18,7 +18,7 @@ const Navbar = () => (
             to='/dialogs'
             activeClassName={styleClasses.Active}
           >
-            Dialogs
+            Messages
           </NavLink>
         </div>
 

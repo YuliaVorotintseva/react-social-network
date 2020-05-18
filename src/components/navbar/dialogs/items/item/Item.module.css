@@ -2,6 +2,11 @@
     margin-top: 30px;
 }
 
-.Active {
+.Item a {
+    color: cornflowerblue;
+    text-decoration: none;
+}
+
+.Item a.Active {
     color: navy;
 }
