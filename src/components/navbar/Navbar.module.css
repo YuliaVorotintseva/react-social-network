@@ -4,8 +4,17 @@
 }
 
 .Item {
-    margin: 20px;
+    padding: 30px;
     font-size: 32px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
+}
+
+.Item a {
+    color: cornflowerblue;
+    text-decoration: none;
+}
+
+.Item a.Active {
+    color: indigo;
 }
