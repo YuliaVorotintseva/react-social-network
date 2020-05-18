@@ -1,4 +1,23 @@
 .Profile {
     grid-area: content;
-    background-color: bisque;
+    background-color: whitesmoke;
+}
+
+.Profile p {
+    font-size: 32px;
+    font-weight: bold;
+    color: gray;
+    margin: 50px;
+}
+
+.Profile .Design {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+}
+
+.Profile .Avatar img {
+    margin: 50px;
+    width: 500px;
+    border-radius: 500px;
 }

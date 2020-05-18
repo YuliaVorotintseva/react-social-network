@@ -2,11 +2,11 @@ import React from 'react'
 import styleClasses from './Item.module.css'
 import { NavLink } from 'react-router-dom'
 
-const Item = ({name}) => {
+const Item = ({name, id}) => {
     return (
         <div className={styleClasses.Item}>
             <NavLink
-                to={`/dialogs/${name}`}
+                to={`/dialogs/${id}`}
                 activeClassName={styleClasses.Active}
             >
                 {name}

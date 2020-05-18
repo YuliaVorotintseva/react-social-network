@@ -8,5 +8,5 @@
   "navigation content";
   grid-template-rows: 100px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 50px;
+  grid-gap: 20px;
 }

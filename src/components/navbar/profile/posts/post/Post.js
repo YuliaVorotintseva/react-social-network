@@ -3,9 +3,14 @@ import styleClasses from './Post.module.css'
 
 const Post = ({message, avatar, likes = 0}) => (
     <div className={styleClasses.Item}>
-        <img src={avatar} />
+        <hr />
+        <img
+            src={avatar}
+            alt='avatar'
+        />
         {message}
         <p>Likes: {likes}</p>
+        <hr />
     </div>
 )
 
