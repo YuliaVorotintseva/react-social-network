@@ -3,11 +3,11 @@ import styleClasses from './Dialogs.module.css'
 import Items from './items/Items'
 import Messages from './messages/Messages'
 
-const Dialogs = () => {
+const Dialogs = ({items, messages}) => {
     return (
         <div className={styleClasses.Dialogs}>
-            <Items />
-            <Messages />
+            <Items items={items} />
+            <Messages messages={messages} />
         </div>
     )
 }

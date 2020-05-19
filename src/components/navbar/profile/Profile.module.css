@@ -3,7 +3,7 @@
     background-color: whitesmoke;
 }
 
-.Profile p {
+.Profile .Posts {
     font-size: 32px;
     font-weight: bold;
     color: gray;

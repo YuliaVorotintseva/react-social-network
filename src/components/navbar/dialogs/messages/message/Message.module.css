@@ -1,6 +1,11 @@
 .Message {
     margin-top: 30px;
     font-size: 32px;
-    font-weight: bold;
     color: dimgray;
+}
+
+.Message img {
+    width: 50px;
+    border-radius: 50px;
+    margin: 10px;
 }

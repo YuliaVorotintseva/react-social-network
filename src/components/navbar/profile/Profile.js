@@ -3,7 +3,7 @@ import styleClasses from './Profile.module.css'
 import Posts from './posts/Posts'
 import CreatePost from './createpost/CreatePost'
 
-const Profile = () => (
+const Profile = ({posts}) => (
     <div className={styleClasses.Profile}>
         <div className={styleClasses.Design} />
         <div className={styleClasses.Avatar}>
@@ -13,10 +13,10 @@ const Profile = () => (
             />
         </div>
 
-        <p>Posts</p>
+        <p className={styleClasses.Posts}>Posts</p>
 
         <CreatePost />
-        <Posts />
+        <Posts posts={posts} />
     </div>
 )
 
