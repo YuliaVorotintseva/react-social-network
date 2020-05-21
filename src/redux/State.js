@@ -1,9 +1,23 @@
+import renderTree from "../render"
+
 export const state = {
     dialogs: {
         items: [
-            {name: 'Slava', id: '1'},
-            {name: 'Misha', id: '2'},
-            {name: 'Sasha', id: '3'}
+            {
+                name: 'Slava',
+                avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
+                id: '1'
+            },
+            {
+                name: 'Misha',
+                avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
+                id: '2'
+            },
+            {
+                name: 'Sasha',
+                avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
+                id: '3'
+            }
         ],
         messages: [
             {
@@ -61,4 +75,14 @@ export const state = {
             }
         ]
     }
+}
+
+export const addPost = message => {
+    state.profile.posts.push({
+        message,
+        avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
+        likes: 0,
+        id: Math.random()
+    })
+    renderTree(state)
 }

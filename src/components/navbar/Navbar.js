@@ -1,8 +1,9 @@
 import React from 'react'
 import styleClasses from './Navbar.module.css'
 import { NavLink } from 'react-router-dom'
+import Friends from './friends/Friends'
 
-const Navbar = () => (
+const Navbar = ({items}) => (
     <nav className={styleClasses.Navigation}>
         <div className={styleClasses.Item}>
           <NavLink
@@ -39,6 +40,8 @@ const Navbar = () => (
             Music
           </NavLink>
         </div>
+
+        <Friends items={items} />
     </nav>
 )
 

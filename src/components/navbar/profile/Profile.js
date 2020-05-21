@@ -5,6 +5,7 @@ import CreatePost from './createpost/CreatePost'
 
 const Profile = ({posts}) => (
     <div className={styleClasses.Profile}>
+        {console.log(posts)}
         <div className={styleClasses.Design} />
         <div className={styleClasses.Avatar}>
             <img

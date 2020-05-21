@@ -1,12 +1,18 @@
 import React from 'react'
 import styleClasses from './CreatePost.module.css'
+import { addPost } from '../../../../redux/State'
 
 const CreatePost = () => {
     let el = React.createRef()
 
-    const addPost = () => {
+    const handleClick = () => {
         let text = el.current.value
-        console.log(text)
+        if(text.length === 0){
+            alert('Write a message!')
+        } else {
+            addPost(text)
+            el.current.value = ''
+        }
     }
 
     return (
@@ -19,14 +25,14 @@ const CreatePost = () => {
             <div>
                 <button
                     className={styleClasses.btn}
-                    onClick={addPost}
+                    onClick={handleClick}
                 >
                     ADD
                 </button>
 
                 <button
                     className={styleClasses.btn}
-                    onClick={() => {}}
+                    onClick={() => el.current.value = ''}
                 >
                     CLEAR
                 </button>

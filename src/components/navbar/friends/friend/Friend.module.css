@@ -1,0 +1,19 @@
+.Friend {
+    margin: 10px;
+}
+
+.Friend img {
+    width: 50px;
+    border-radius: 50px;
+}
+
+.Friend a {
+    font-size: 20px;
+    color: gray;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.Friend a.Active {
+    color: midnightblue;
+}

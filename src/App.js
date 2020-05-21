@@ -6,13 +6,13 @@ import Profile from './components/navbar/profile/Profile'
 import Dialogs from './components/navbar/dialogs/Dialogs'
 import { Route } from 'react-router'
 
-const App = ({items, messages, posts}) => {
+const App = ({state}) => {
   return (
     <div className='app-wrapper'>
       <Header />
-      <Navbar />
-      <Route path='/profile' render={() => <Profile posts={posts} />} />
-      <Route path='/dialogs' render={() => <Dialogs items={items} messages={messages} />} />
+      <Navbar items={state.dialogs.items} />
+      <Route path='/profile' render={() => <Profile posts={state.profile.posts} />} />
+      <Route path='/dialogs' render={() => <Dialogs items={state.dialogs.items} messages={state.dialogs.messages} />} />
     </div>
   )
 }
