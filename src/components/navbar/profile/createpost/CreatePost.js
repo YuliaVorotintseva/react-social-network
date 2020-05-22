@@ -1,8 +1,7 @@
 import React from 'react'
 import styleClasses from './CreatePost.module.css'
-import { addPost } from '../../../../redux/State'
 
-const CreatePost = () => {
+const CreatePost = ({addPost, updateText}) => {
     let el = React.createRef()
 
     const handleClick = () => {
@@ -15,10 +14,16 @@ const CreatePost = () => {
         }
     }
 
+    const onPostChange = () => {
+        let text = el.current.value
+        updateText(text)
+    }
+
     return (
         <div className={styleClasses.CreatePost}>
             <textarea
-                placeholder="Write your message here"
+                placeholder='Write your message here'
+                onChange={onPostChange}
                 ref={el}
             />
             
