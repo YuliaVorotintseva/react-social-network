@@ -86,32 +86,42 @@ export const store = {
         }
     },
 
-    addPost() {
-        let message = this.state.profile.profileText
-        this.state.profile.posts.push({
-            message,
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            likes: 0,
-            dislikes: 0,
-            id: Math.random()
-        })
-        this.state.profile.profileText = ''
-        renderTree()
-    },
+    dispatch(action) {
+        switch(action.type) {
+            case 'ADD_POST': {
+                let message = this.state.profile.profileText
+                this.state.profile.posts.push({
+                    message,
+                    avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
+                    likes: 0,
+                    dislikes: 0,
+                    id: Math.random()
+                })
+                this.state.profile.profileText = ''
+                renderTree()
+                break
+            }
 
-    updateText(message) {
-        this.state.profile.profileText = message
-        renderTree()
-    },
+            case 'UPDATE_TEXT': {
+                console.log(action.message)
+                this.state.profile.profileText = action.message
+                renderTree()
+                break
+            }
 
-    updateLikes(id, type) {
-        const posts = this.state.profile.posts.slice(0, this.state.profile.posts.length)
-        const currentPost = posts.find( e => e.id === id)
-    
-        if(type === '+') ++currentPost.likes
-        else ++currentPost.dislikes
-    
-        this.state.profile.posts = posts
-        renderTree()
+            case 'UPDATE_LIKES': {
+                const posts = this.state.profile.posts.slice(0, this.state.profile.posts.length)
+                const currentPost = posts.find( e => e.id === action.id)
+            
+                if(action.case === '+') ++currentPost.likes
+                else ++currentPost.dislikes
+            
+                this.state.profile.posts = posts
+                renderTree()
+                break
+            }
+
+            default: break
+        }
     }
 }

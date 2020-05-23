@@ -3,7 +3,7 @@ import styleClasses from './Profile.module.css'
 import Posts from './posts/Posts'
 import CreatePost from './createpost/CreatePost'
 
-const Profile = ({posts, addPost, updateText, updateLikes}) => (
+const Profile = ({posts, profileText, dispatch}) => (
     <div className={styleClasses.Profile}>
         <div className={styleClasses.Design} />
         <div className={styleClasses.Avatar}>
@@ -16,13 +16,13 @@ const Profile = ({posts, addPost, updateText, updateLikes}) => (
         <p className={styleClasses.Posts}>Posts</p>
 
         <CreatePost
-            addPost={addPost}
-            updateText={updateText}
+            profileText={profileText}
+            dispatch={dispatch}
         />
 
         <Posts
             posts={posts}
-            updateLikes={updateLikes}
+            dispatch={dispatch}
         />
     </div>
 )

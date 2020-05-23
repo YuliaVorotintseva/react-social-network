@@ -6,7 +6,7 @@ import Profile from './components/navbar/profile/Profile'
 import Dialogs from './components/navbar/dialogs/Dialogs'
 import { Route } from 'react-router'
 
-const App = ({state, addPost, updateText, updateLikes}) => {
+const App = ({state, dispatch}) => {
   return (
     <div className='app-wrapper'>
       <Header />
@@ -14,9 +14,8 @@ const App = ({state, addPost, updateText, updateLikes}) => {
 
       <Route path='/profile' render={() => <Profile
           posts={state.profile.posts}
-          addPost={addPost}
-          updateText={updateText}
-          updateLikes={updateLikes}
+          profileText={state.profile.profileText}
+          dispatch={dispatch}
         />}
       />
 

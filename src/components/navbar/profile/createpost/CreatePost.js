@@ -1,29 +1,31 @@
 import React from 'react'
 import styleClasses from './CreatePost.module.css'
 
-const CreatePost = ({addPost, updateText}) => {
+const CreatePost = ({profileText, dispatch}) => {
     let el = React.createRef()
 
     const handleClick = () => {
-        let text = el.current.value
-        if(text.length === 0){
+        if(el.current.value.length === 0){
             alert('Write a message!')
         } else {
-            addPost(text)
+            dispatch({type: 'ADD_POST'})
             el.current.value = ''
         }
     }
 
     const onPostChange = () => {
         let text = el.current.value
-        updateText(text)
+        dispatch({
+            type: 'UPDATE_TEXT',
+            message: text
+        })
     }
 
     return (
         <div className={styleClasses.CreatePost}>
             <textarea
-                placeholder='Write your message here'
                 onChange={onPostChange}
+                value={profileText}
                 ref={el}
             />
             

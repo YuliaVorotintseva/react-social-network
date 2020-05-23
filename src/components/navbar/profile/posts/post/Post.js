@@ -1,7 +1,7 @@
 import React from 'react'
 import styleClasses from './Post.module.css'
 
-const Post = ({post, updateLikes}) => (
+const Post = ({post, dispatch}) => (
     <div className={styleClasses.Item}>
         <hr />
         <img
@@ -11,14 +11,22 @@ const Post = ({post, updateLikes}) => (
         {post.message}
 
         <div className={styleClasses.UpdateLikes}>
-            <button onClick={() => updateLikes(post.id, '+')}>
+            <button onClick={() => dispatch({
+                type: 'UPDATE_LIKES',
+                id: post.id,
+                case: '+'
+            })}>
                 Like
             </button>
 
             {post.likes} &#11014;
             &#11015; {post.dislikes}
 
-            <button onClick={() => updateLikes(post.id, '-')}>
+            <button onClick={() => dispatch({
+                type: 'UPDATE_LIKES',
+                id: post.id,
+                case: '-'
+            })}>
                 Dislike
             </button>
         </div>
