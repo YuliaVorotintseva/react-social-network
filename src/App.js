@@ -22,6 +22,8 @@ const App = ({state, dispatch}) => {
       <Route path='/dialogs' render={() => <Dialogs
           items={state.dialogs.items}
           messages={state.dialogs.messages}
+          messageText={state.dialogs.messageText}
+          dispatch={dispatch}
         />}
       />
     </div>

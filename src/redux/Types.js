@@ -1,3 +1,5 @@
 export const ADD_POST = 'ADD_POST'
 export const UPDATE_TEXT = 'UPDATE_TEXT'
 export const UPDATE_LIKES = 'UPDATE_LIKES'
+export const UPDATE_MESSAGE = 'UPDATE_MESSAGE'
+export const SEND_MESSAGE = 'SEND_MESSAGE'

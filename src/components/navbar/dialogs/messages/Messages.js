@@ -1,13 +1,24 @@
 import React from 'react'
 import styleClasses from './Messages.module.css'
 import Message from './message/Message'
-import CreatePost from '../../profile/createpost/CreatePost'
+import CreateMessage from '../../../../ui/CreateMessage'
+import { updateMessageActionCreator, sendMessageActionCreator } from '../../../../redux/Creators'
 
-const Messages = ({messages}) => (
+const Messages = ({messages, messageText, dispatch}) => (
     <div className={styleClasses.Messages}>
-        {messages.map(({message, avatar, id}) => <Message key={id} message={message} avatar={avatar} />)}
+        {messages.map(({message, avatar, id}) => <Message
+            key={id}
+            message={message}
+            avatar={avatar}
+        />)}
+
         <hr />
-        <CreatePost />
+        <CreateMessage
+            text={messageText}
+            dispatch={dispatch}
+            updateActionCreator={updateMessageActionCreator}
+            addActionCreator={sendMessageActionCreator}
+        />
    </div>
 )
 

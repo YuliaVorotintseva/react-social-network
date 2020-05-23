@@ -1,4 +1,4 @@
-import { ADD_POST, UPDATE_TEXT, UPDATE_LIKES } from "./Types"
+import { ADD_POST, UPDATE_TEXT, UPDATE_LIKES, UPDATE_MESSAGE, SEND_MESSAGE } from "./Types"
 
 export const addPostActionCreator = () => ({type: ADD_POST})
 
@@ -9,6 +9,13 @@ export const updateTextActionCreator = text => ({
 
 export const updateLikes = (id, func) => ({
     type: UPDATE_LIKES,
-    id: id,
-    func: func
+    id,
+    func
 })
+
+export const updateMessageActionCreator = message => ({
+    type: UPDATE_MESSAGE,
+    message
+})
+
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE})

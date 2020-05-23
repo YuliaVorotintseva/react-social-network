@@ -8,6 +8,10 @@
     margin: 10px;
 }
 
+.Item hr {
+    margin: 10px;
+}
+
 .Item .UpdateLikes {
     font-weight: bold;
 }

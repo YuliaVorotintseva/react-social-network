@@ -1,8 +1,8 @@
-.CreatePost div {
+.CreateMessage div {
     margin: 50px;
 }
 
-.CreatePost textarea {
+.CreateMessage textarea {
     width: 70%;
     height: 200px;
     margin-left: 50px;
