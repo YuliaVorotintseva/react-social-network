@@ -1,5 +1,6 @@
 import React from 'react'
 import styleClasses from './CreatePost.module.css'
+import { addPostActionCreator, updateTextActionCreator } from '../../../../redux/Creators'
 
 const CreatePost = ({profileText, dispatch}) => {
     let el = React.createRef()
@@ -8,17 +9,13 @@ const CreatePost = ({profileText, dispatch}) => {
         if(el.current.value.length === 0){
             alert('Write a message!')
         } else {
-            dispatch({type: 'ADD_POST'})
-            el.current.value = ''
+            dispatch(addPostActionCreator())
         }
     }
 
     const onPostChange = () => {
         let text = el.current.value
-        dispatch({
-            type: 'UPDATE_TEXT',
-            message: text
-        })
+        dispatch(updateTextActionCreator(text))
     }
 
     return (
@@ -39,7 +36,7 @@ const CreatePost = ({profileText, dispatch}) => {
 
                 <button
                     className={styleClasses.btn}
-                    onClick={() => el.current.value = ''}
+                    onClick={() => dispatch(updateTextActionCreator(''))}
                 >
                     CLEAR
                 </button>

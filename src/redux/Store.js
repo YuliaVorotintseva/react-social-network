@@ -103,7 +103,6 @@ export const store = {
             }
 
             case 'UPDATE_TEXT': {
-                console.log(action.message)
                 this.state.profile.profileText = action.message
                 renderTree()
                 break
@@ -113,7 +112,7 @@ export const store = {
                 const posts = this.state.profile.posts.slice(0, this.state.profile.posts.length)
                 const currentPost = posts.find( e => e.id === action.id)
             
-                if(action.case === '+') ++currentPost.likes
+                if(action.func === '+') ++currentPost.likes
                 else ++currentPost.dislikes
             
                 this.state.profile.posts = posts
