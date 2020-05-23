@@ -11,10 +11,10 @@
 }
 
 .Item a {
-    color: cornflowerblue;
+    color: gray;
     text-decoration: none;
 }
 
 .Item a.Active {
-    color: navy;
+    color: cornflowerblue;
 }
