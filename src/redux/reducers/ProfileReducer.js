@@ -1,6 +1,33 @@
 import { ADD_POST, UPDATE_TEXT, UPDATE_LIKES } from '../Types'
 
-const profileReducer = (state, action) => {
+const initialState = {
+    posts: [
+        {
+            message: 'Hello!',
+            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
+            likes: 100,
+            dislikes: 0,
+            id: 1
+        },
+        {
+            message: 'React',
+            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
+            likes: 157,
+            dislikes: 2,
+            id: 2
+        },
+        {
+            message: 'Redux',
+            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
+            likes: 146,
+            dislikes: 7,
+            id: 3
+        }
+    ],
+    profileText: ''
+}
+
+const profileReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_POST: {
             let message = state.profileText
@@ -31,7 +58,7 @@ const profileReducer = (state, action) => {
             break
         }
 
-        default: break
+        default: {}
     }
 
     return state
