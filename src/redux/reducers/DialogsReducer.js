@@ -57,6 +57,7 @@ const initialState = {
 const dialogsReducer = (state = initialState, action) => {
     switch(action.type) {
         case UPDATE_MESSAGE: {
+            console.log(action.message)
             state.messageText = action.message
             break
         }

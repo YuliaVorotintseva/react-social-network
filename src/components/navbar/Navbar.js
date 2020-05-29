@@ -3,7 +3,7 @@ import styleClasses from './Navbar.module.css'
 import { NavLink } from 'react-router-dom'
 import Friends from './friends/Friends'
 
-const Navbar = ({items}) => (
+const Navbar = () => (
     <nav className={styleClasses.Navigation}>
         <div className={styleClasses.Item}>
           <NavLink
@@ -41,7 +41,7 @@ const Navbar = ({items}) => (
           </NavLink>
         </div>
 
-        <Friends items={items} />
+        <Friends />
     </nav>
 )
 

@@ -1,12 +1,19 @@
 import React from 'react'
 import styleClasses from './Friends.module.css'
 import Friend from './friend/Friend'
+import StoreContext from '../../../StoreContext'
 
-const Friends = ({items}) => {
+const Friends = () => {
     return (
-        <div className={styleClasses.Friends}>
-            {items.map(({id, avatar, name}) => <Friend key={id} avatar={avatar} name={name} />)}
-        </div>
+        <StoreContext.Consumer>
+            {
+                value => (
+                    <div className={styleClasses.Friends}>
+                        {value.state.dialogs.items.map(({id, avatar, name}) => <Friend key={id} avatar={avatar} name={name} />)}
+                    </div>
+                )
+            }
+        </StoreContext.Consumer>
     )
 }
 

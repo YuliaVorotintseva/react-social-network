@@ -1,10 +1,10 @@
 import React from 'react'
 import styleClasses from './Profile.module.css'
 import Posts from './posts/Posts'
-import CreateMessage from '../../../ui/CreateMessage'
-import { addPostActionCreator, updateTextActionCreator } from '../../../redux/Creators'
+import { addPostActionCreator, updateTextActionCreator, updateLikes } from '../../../redux/Creators'
+import MessageContainer from '../../../ui/MessageContainer'
 
-const Profile = ({posts, profileText, dispatch}) => (
+const Profile = () => (
     <div className={styleClasses.Profile}>
         <div className={styleClasses.Design} />
         <div className={styleClasses.Avatar}>
@@ -16,17 +16,12 @@ const Profile = ({posts, profileText, dispatch}) => (
 
         <p className={styleClasses.Posts}>Posts</p>
 
-        <CreateMessage
-            text={profileText}
-            dispatch={dispatch}
+        <MessageContainer
             updateActionCreator={updateTextActionCreator}
             addActionCreator={addPostActionCreator}
         />
 
-        <Posts
-            posts={posts}
-            dispatch={dispatch}
-        />
+        <Posts updateLikes={updateLikes} />
     </div>
 )
 

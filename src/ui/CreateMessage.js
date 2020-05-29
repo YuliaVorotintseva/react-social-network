@@ -1,46 +1,29 @@
 import React from 'react'
 import styleClasses from './CreateMessage.module.css'
 
-const CreateMessage = ({text, dispatch, updateActionCreator, addActionCreator}) => {
-    let message = text
-
-    const onMessageChange = e => {
-        let tempText = e.target.value
-        dispatch(updateActionCreator(tempText))
-    }
-
-    const handleClick = () => {
-        if(message.length === 0) {
-            alert('Write your message!')
-        } else {
-            dispatch(addActionCreator())
-        }
-    }
-
-    return (
+const CreateMessage = ({text, update, add, clear}) => (
         <div className={styleClasses.CreateMessage}>
             <textarea
                 value={text}
-                onChange={onMessageChange}
+                onChange={update}
             />
             
             <div>
                 <button
                     className={styleClasses.btn}
-                    onClick={handleClick}
+                    onClick={add}
                 >
                     ADD
                 </button>
 
                 <button
                     className={styleClasses.btn}
-                    onClick={() => dispatch(updateActionCreator(''))}
+                    onClick={clear}
                 >
                     CLEAR
                 </button>
             </div>
         </div>
     )
-}
 
 export default CreateMessage

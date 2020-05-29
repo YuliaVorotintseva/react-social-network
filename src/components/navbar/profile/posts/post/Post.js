@@ -1,8 +1,7 @@
 import React from 'react'
 import styleClasses from './Post.module.css'
-import { updateLikes } from '../../../../../redux/Creators'
 
-const Post = ({post, dispatch}) => (
+const Post = ({post, updateLike, updateDislike}) => (
     <div className={styleClasses.Item}>
         <hr />
         <img
@@ -12,14 +11,14 @@ const Post = ({post, dispatch}) => (
         {post.message}
 
         <div className={styleClasses.UpdateLikes}>
-            <button onClick={() => dispatch(updateLikes(post.id, '+'))}>
+            <button onClick={updateLike}>
                 Like
             </button>
 
             {post.likes} &#11014;
             &#11015; {post.dislikes}
 
-            <button onClick={() => dispatch(updateLikes(post.id, '-'))}>
+            <button onClick={updateDislike}>
                 Dislike
             </button>
         </div>
