@@ -1,24 +1,22 @@
 import React from 'react'
 import styleClasses from './Posts.module.css'
-import PostContainer from './post/PostContainer'
-import StoreContext from '../../../../StoreContext'
+import Post from './post/Post'
 
-const Posts = ({updateLikes}) => (
-    <StoreContext.Consumer>
+const Posts = ({posts, updateLike, updateDislike}) => (
+    <div className={styleClasses.Posts}>
         {
-            value => (
-                <div className={styleClasses.Posts}>
-                    {value.state.profile.posts.map(post => <PostContainer
-                            key={post.id}
-                            post={post}
-                            dispatch={value.dispatch}
-                            updateLikes={updateLikes}
-                        />
-                    )}
-                </div>
+            posts.map(post => {
+                let id = post.id
+                return <Post
+                    key={id}
+                    post={post}
+                    updateLike={() => updateLike(id)}
+                    updateDislike={() => updateDislike(id)}
+                />
+            }
             )
         }
-    </StoreContext.Consumer>
+    </div>
 )
 
 export default Posts

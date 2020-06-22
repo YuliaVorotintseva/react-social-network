@@ -1,8 +1,7 @@
 import React from 'react'
 import styleClasses from './Profile.module.css'
-import Posts from './posts/Posts'
-import { addPostActionCreator, updateTextActionCreator, updateLikes } from '../../../redux/Creators'
-import MessageContainer from '../../../ui/MessageContainer'
+import CreatePostContainer from './posts/CreatePostContainer'
+import PostsContainer from './posts/PostsContainer'
 
 const Profile = () => (
     <div className={styleClasses.Profile}>
@@ -16,12 +15,8 @@ const Profile = () => (
 
         <p className={styleClasses.Posts}>Posts</p>
 
-        <MessageContainer
-            updateActionCreator={updateTextActionCreator}
-            addActionCreator={addPostActionCreator}
-        />
-
-        <Posts updateLikes={updateLikes} />
+        <CreatePostContainer />
+        <PostsContainer />
     </div>
 )
 

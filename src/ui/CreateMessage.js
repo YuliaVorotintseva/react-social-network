@@ -4,8 +4,8 @@ import styleClasses from './CreateMessage.module.css'
 const CreateMessage = ({text, update, add, clear}) => (
         <div className={styleClasses.CreateMessage}>
             <textarea
-                value={text}
-                onChange={update}
+                onChange={e => update(e.target.value)}
+                value = {text}
             />
             
             <div>

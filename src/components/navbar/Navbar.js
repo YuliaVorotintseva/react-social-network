@@ -1,7 +1,7 @@
 import React from 'react'
 import styleClasses from './Navbar.module.css'
 import { NavLink } from 'react-router-dom'
-import Friends from './friends/Friends'
+import CreateFriendsContainer from './friends/CreateFriendsContainer'
 
 const Navbar = () => (
     <nav className={styleClasses.Navigation}>
@@ -41,7 +41,7 @@ const Navbar = () => (
           </NavLink>
         </div>
 
-        <Friends />
+        <CreateFriendsContainer />
     </nav>
 )
 

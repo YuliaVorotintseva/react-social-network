@@ -28,22 +28,28 @@ const initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
+    let tempState = {...state}
+    tempState.posts = state.posts.slice(0, state.posts.length)
+    for(let i = 0; i < state.posts.length; ++i) {
+        tempState.posts[i] = {...state.posts[i]}
+    }
+
     switch(action.type) {
         case ADD_POST: {
-            let message = state.profileText
-            state.posts.push({
+            let message = tempState.profileText
+            tempState.posts.push({
                 message,
                 avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
                 likes: 0,
                 dislikes: 0,
                 id: Math.random()
             })
-            state.profileText = ''
+            tempState.profileText = ''
             break
         }
 
         case UPDATE_TEXT: {
-            state.profileText = action.message
+            tempState.profileText = action.message
             break
         }
 
@@ -54,14 +60,14 @@ const profileReducer = (state = initialState, action) => {
             if(action.func === '+') ++currentPost.likes
             else ++currentPost.dislikes
         
-            state.posts = posts
+            tempState.posts = posts
             break
         }
 
         default: {}
     }
 
-    return state
+    return tempState
 }
 
 export default profileReducer
