@@ -41,6 +41,15 @@ const Navbar = () => (
           </NavLink>
         </div>
 
+        <div className={styleClasses.Item}>
+          <NavLink
+            to='/users'
+            activeClassName={styleClasses.Active}
+          >
+            Users
+          </NavLink>
+        </div>
+
         <CreateFriendsContainer />
     </nav>
 )
