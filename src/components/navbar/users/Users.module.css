@@ -3,3 +3,8 @@
     display: grid;
     grid-template-columns: 4fr 8fr;
 }
+
+.Pagination {
+    font-size: 32px;
+    text-align: center;
+}
