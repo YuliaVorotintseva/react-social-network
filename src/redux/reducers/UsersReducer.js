@@ -1,9 +1,15 @@
-import {FOLLOW, SET_USERS} from '../Types'
+import {
+    FOLLOW,
+    SET_USERS,
+    SET_LOAD
+} from '../Types'
 
 const initialState = {
     users: [],
-    pageSize: 0,
-    totalUsersCount: 0
+    pageSize: 5,
+    totalUsersCount: 20,
+    currentPage: 1,
+    isLoad: true
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -25,6 +31,11 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS: {
             //return {...state, users: [...state.users, ...action.users]}
             tempState.users = action.users.slice(0, action.users.length)
+            break
+        }
+
+        case SET_LOAD: {
+            tempState.isLoad = action.load
             break
         }
 

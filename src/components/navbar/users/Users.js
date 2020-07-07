@@ -2,6 +2,7 @@ import React from 'react'
 import * as axios from 'axios'
 import styleClasses from './Users.module.css'
 import User from './user/User'
+import Loader from '../../ui/loader/Loader'
 
 class Users extends React.Component {
     async componentDidMount() {
@@ -12,13 +13,16 @@ class Users extends React.Component {
             usersArr => usersArr.map(user => users.push(user))
         )
         this.props.set(users)
+        this.props.setLoad(false)
     }
 
     render() {
         return (
             <div className={styleClasses.Users}>
                 {
-                    this.props.users.map(user => (
+                    this.props.isLoad
+                    ? <Loader />
+                    : this.props.users.map(user => (
                         <User
                             key={user.id}
                             avatar={user.avatar}

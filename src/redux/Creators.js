@@ -5,7 +5,8 @@ import {
     UPDATE_MESSAGE,
     SEND_MESSAGE,
     FOLLOW,
-    SET_USERS
+    SET_USERS,
+    SET_LOAD
 } from "./Types"
 
 export const addPostActionCreator = () => ({type: ADD_POST})
@@ -36,4 +37,9 @@ export const followAC = id => ({
 export const setUsersAC = users => ({
     type: SET_USERS,
     users
+})
+
+export const setLoadAC = load => ({
+    type: SET_LOAD,
+    load
 })
