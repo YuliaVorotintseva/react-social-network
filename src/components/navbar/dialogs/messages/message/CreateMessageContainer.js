@@ -1,14 +1,14 @@
 import { connect } from "react-redux"
 import CreateMessage from '../../../../../ui/CreateMessage'
-import { updateMessageActionCreator, sendMessageActionCreator } from "../../../../../redux/Creators"
+import { updateMessage, sendMessage } from "../../../../../redux/Creators"
 
 const mapStateToProps = state => ({text: state.dialogs.messageText})
 
 const mapDispatchToProps = dispatch => (
     {
-        update: text => dispatch(updateMessageActionCreator(text)),
-        add: () => dispatch(sendMessageActionCreator()),
-        clear: () => dispatch(updateMessageActionCreator(''))
+        update: text => dispatch(updateMessage(text)),
+        add: () => dispatch(sendMessage()),
+        clear: () => dispatch(updateMessage(''))
     }
 )
 

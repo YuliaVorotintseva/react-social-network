@@ -6,9 +6,6 @@ import {
 
 const initialState = {
     users: [],
-    pageSize: 5,
-    totalUsersCount: 20,
-    currentPage: 1,
     isLoad: true
 }
 

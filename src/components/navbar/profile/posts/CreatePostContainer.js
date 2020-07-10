@@ -1,14 +1,14 @@
 import CreateMessage from '../../../../ui/CreateMessage'
 import { connect } from 'react-redux'
-import { addPostActionCreator, updateTextActionCreator } from '../../../../redux/Creators'
+import { addPost, updateText } from '../../../../redux/Creators'
 
 const mapStateToProps = state => ({text: state.profile.profileText})
 
 const mapDispatchToProps = dispatch => (
     {
-        update: text => dispatch(updateTextActionCreator(text)),
-        add: () => dispatch(addPostActionCreator()),
-        clear: () => dispatch(updateTextActionCreator(''))
+        update: text => dispatch(updateText(text)),
+        add: () => dispatch(addPost()),
+        clear: () => dispatch(updateText('')),
     }
 )
 

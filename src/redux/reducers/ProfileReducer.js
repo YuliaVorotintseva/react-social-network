@@ -1,38 +1,14 @@
-import { ADD_POST, UPDATE_TEXT, UPDATE_LIKES } from '../Types'
+import { ADD_POST, UPDATE_TEXT, UPDATE_LIKES, SET_POSTS, SET_LOAD } from '../Types'
 
 const initialState = {
-    posts: [
-        {
-            message: 'Hello!',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            likes: 100,
-            dislikes: 0,
-            id: 1
-        },
-        {
-            message: 'React',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            likes: 157,
-            dislikes: 2,
-            id: 2
-        },
-        {
-            message: 'Redux',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            likes: 146,
-            dislikes: 7,
-            id: 3
-        }
-    ],
-    profileText: ''
+    posts: [],
+    profileText: '',
+    isLoad: true
 }
 
 const profileReducer = (state = initialState, action) => {
     let tempState = {...state}
     tempState.posts = state.posts.slice(0, state.posts.length)
-    for(let i = 0; i < state.posts.length; ++i) {
-        tempState.posts[i] = {...state.posts[i]}
-    }
 
     switch(action.type) {
         case ADD_POST: {
@@ -61,6 +37,16 @@ const profileReducer = (state = initialState, action) => {
             else ++currentPost.dislikes
         
             tempState.posts = posts
+            break
+        }
+
+        case SET_POSTS: {
+            tempState.posts = action.posts.slice(0, action.posts.length)
+            break
+        }
+
+        case SET_LOAD: {
+            tempState.isLoad = action.isLoad
             break
         }
 

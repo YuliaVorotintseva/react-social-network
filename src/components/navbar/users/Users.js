@@ -12,7 +12,7 @@ class Users extends React.Component {
         Object.values(response.data).forEach(
             usersArr => usersArr.map(user => users.push(user))
         )
-        this.props.set(users)
+        this.props.setUsers(users)
         this.props.setLoad(false)
     }
 

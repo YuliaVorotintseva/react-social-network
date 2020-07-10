@@ -6,12 +6,17 @@ import {
     SEND_MESSAGE,
     FOLLOW,
     SET_USERS,
-    SET_LOAD
+    SET_LOAD,
+    SET_POSTS,
+    SET_MESSAGES,
+    SET_ITEMS,
+    SET_MESSAGES_LOAD,
+    SET_ITEMS_LOAD
 } from "./Types"
 
-export const addPostActionCreator = () => ({type: ADD_POST})
+export const addPost = () => ({type: ADD_POST})
 
-export const updateTextActionCreator = text => ({
+export const updateText = text => ({
     type: UPDATE_TEXT,
     message: text
 })
@@ -22,24 +27,49 @@ export const updateLikes = (id, func) => ({
     func
 })
 
-export const updateMessageActionCreator = message => ({
+export const setPosts = posts => ({
+    type: SET_POSTS,
+    posts
+})
+
+export const updateMessage = message => ({
     type: UPDATE_MESSAGE,
     message
 })
 
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE})
+export const sendMessage = () => ({type: SEND_MESSAGE})
 
-export const followAC = id => ({
+export const setMessages = messages => ({
+    type: SET_MESSAGES,
+    messages
+})
+
+export const setItems = items => ({
+    type: SET_ITEMS,
+    items
+})
+
+export const follow = id => ({
     type: FOLLOW,
     id
 })
 
-export const setUsersAC = users => ({
+export const setUsers = users => ({
     type: SET_USERS,
     users
 })
 
-export const setLoadAC = load => ({
+export const setLoad = load => ({
     type: SET_LOAD,
+    load
+})
+
+export const setMessagesLoad = load => ({
+    type: SET_MESSAGES_LOAD,
+    load
+})
+
+export const setItemsLoad = load => ({
+    type: SET_ITEMS_LOAD,
     load
 })

@@ -1,65 +1,23 @@
-import { UPDATE_MESSAGE, SEND_MESSAGE } from '../Types'
+import {
+    UPDATE_MESSAGE,
+    SEND_MESSAGE,
+    SET_MESSAGES,
+    SET_MESSAGES_LOAD,
+    SET_ITEMS_LOAD,
+    SET_ITEMS
+} from '../Types'
 
 const initialState = {
-    items: [
-        {
-            name: 'Slava',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            id: '1'
-        },
-        {
-            name: 'Misha',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            id: '2'
-        },
-        {
-            name: 'Sasha',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            id: '3'
-        }
-    ],
-    messages: [
-        {
-            message: 'JavaScript',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            id: 1
-        },
-        {
-            message: 'React',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            id: 2
-        },
-        {
-            message: 'Redux',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            id: 3
-        },
-        {
-            message: 'Vue',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            id: 4
-        },
-        {
-            message: 'Angular',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            id: 5
-        },
-        {
-            message: 'NodeJS',
-            avatar: 'https://avatars.mds.yandex.net/get-pdb/195449/0642142b-b08f-414f-b34d-ca70e6586c2a/s1200?webp=false',
-            id: 6
-        }
-    ],
-
-    messageText: ''
+    items: [],
+    messages: [],
+    messageText: '',
+    isMessagesLoad: true,
+    isItemsLoad: true
 }
 
 const dialogsReducer = (state = initialState, action) => {
     let tempState = {...state}
     tempState.messages = state.messages.slice(0, state.messages.length)
-    for(let i = 0; i < state.messages.length; ++i) {
-        tempState.messages[i] = {...state.messages[i]}
-    }
 
     switch(action.type) {
         case UPDATE_MESSAGE: {
@@ -75,6 +33,26 @@ const dialogsReducer = (state = initialState, action) => {
                 id: Math.random()
             })
             tempState.messageText = ''
+            break
+        }
+
+        case SET_MESSAGES: {
+            tempState.messages = action.messages.slice(0, action.messages.length)
+            break
+        }
+
+        case SET_ITEMS: {
+            tempState.items = action.items.slice(0, action.items.length)
+            break
+        }
+
+        case SET_MESSAGES_LOAD: {
+            tempState.isMessagesLoad = action.isLoad
+            break
+        }
+
+        case SET_ITEMS_LOAD: {
+            tempState.isItemsLoad = action.isLoad
             break
         }
 
