@@ -1,5 +1,6 @@
 import React from 'react'
 import styleClasses from './CreateMessage.module.css'
+import Button from '../button/Button'
 
 const CreateMessage = ({text, update, add, clear}) => (
         <div className={styleClasses.CreateMessage}>
@@ -9,19 +10,8 @@ const CreateMessage = ({text, update, add, clear}) => (
             />
             
             <div>
-                <button
-                    className={styleClasses.btn}
-                    onClick={add}
-                >
-                    ADD
-                </button>
-
-                <button
-                    className={styleClasses.btn}
-                    onClick={clear}
-                >
-                    CLEAR
-                </button>
+                <Button onClick={add}>ADD</Button>
+                <Button onClick={clear}>CLEAR</Button>
             </div>
         </div>
     )

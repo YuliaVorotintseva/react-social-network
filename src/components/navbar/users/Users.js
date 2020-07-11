@@ -25,6 +25,7 @@ class Users extends React.Component {
                     : this.props.users.map(user => (
                         <User
                             key={user.id}
+                            id={user.id}
                             avatar={user.avatar}
                             name={user.name}
                             followed={user.followed}

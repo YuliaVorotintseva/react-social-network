@@ -1,9 +1,15 @@
 import React from 'react'
 import styleClasses from './User.module.css'
+import { NavLink } from 'react-router-dom'
+import Button from '../../../ui/button/Button'
 
 const User = user => (
     <div className={styleClasses.User}>
-        <img alt={user.name} src={user.avatar} />
+        <NavLink
+            to={`/profile/${user.id}`}
+        >
+            <img alt={user.name} src={user.avatar} />
+        </NavLink>
         <p className={styleClasses.Name}>{user.name}</p>
         <p>{user.status}</p>
         
@@ -15,8 +21,8 @@ const User = user => (
         <div>
             {
                 user.followed
-                ? <button className={styleClasses.Button} onClick={user.follow}>UNFOLLOW</button>
-                : <button className={styleClasses.Button} onClick={user.follow}>FOLLOW</button>
+                ? <Button onClick={user.follow}>UNFOLLOW</Button>
+                : <Button onClick={user.follow}>FOLLOW</Button>
             }
         </div>
     </div>

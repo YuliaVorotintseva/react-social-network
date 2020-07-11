@@ -1,4 +1,4 @@
-import CreateMessage from '../../../../ui/CreateMessage'
+import CreateMessage from '../../../ui/message/CreateMessage'
 import { connect } from 'react-redux'
 import { addPost, updateText } from '../../../../redux/Creators'
 

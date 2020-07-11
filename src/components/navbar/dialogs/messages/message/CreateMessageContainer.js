@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import CreateMessage from '../../../../../ui/CreateMessage'
+import CreateMessage from '../../../../ui/message/CreateMessage'
 import { updateMessage, sendMessage } from "../../../../../redux/Creators"
 
 const mapStateToProps = state => ({text: state.dialogs.messageText})
