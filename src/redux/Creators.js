@@ -11,7 +11,9 @@ import {
     SET_MESSAGES,
     SET_ITEMS,
     SET_MESSAGES_LOAD,
-    SET_ITEMS_LOAD
+    SET_ITEMS_LOAD,
+    SUCCESS_AUTH,
+    AUTH_LOGOUT
 } from "./Types"
 
 export const addPost = () => ({type: ADD_POST})
@@ -73,3 +75,10 @@ export const setItemsLoad = load => ({
     type: SET_ITEMS_LOAD,
     load
 })
+
+export const authSuccess = token => ({
+    type: SUCCESS_AUTH,
+    token
+})
+
+export const logout = () => ({type: AUTH_LOGOUT})

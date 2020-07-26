@@ -12,6 +12,7 @@ const Header = () => (
         <NavLink
             to='/auth'
             activeClassName={styleClasses.Active}
+            className={styleClasses.Auth}
         >
             Auth
         </NavLink>

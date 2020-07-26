@@ -1,7 +1,19 @@
 .Head {
-    grid-area: head;
-    background-color: lightsteelblue;
-  }
+  grid-area: head;
+  background-color: lightsteelblue;
+}
+
+.Auth {
+  font-size: 32px;
+  color: aliceblue;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 30px;
+}
+
+.Active {
+  color: midnightblue;
+}
   
 .Head img {
   width: 100px;

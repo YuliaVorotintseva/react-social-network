@@ -4,7 +4,7 @@ import Button from '../../ui/button/Button'
 import Input from '../../ui/input/Input'
 import is from 'is_js'
 
-export default class Auth extends React.Component {
+class Auth extends React.Component {
     state = {
         isFormValid: false,
         formControls: {
@@ -35,8 +35,17 @@ export default class Auth extends React.Component {
         }
     }
 
-    loginHandler = () => {}
-    authHandler = () => {}
+    validateControl = (value, validation) => {
+        if(!validation) {
+            return true
+        }
+
+        let isValid = true
+        if(validation.required) isValid = value.trim() !== '' && isValid
+        if(validation.email) isValid = is.email(value) && isValid
+        if(validation.minLength) isValid = value.length >= validation.minLength && isValid
+        return isValid
+    }
 
     onChangeHandler = (event, controlName) => {
         const formControls = {...this.state.formControls}
@@ -54,18 +63,6 @@ export default class Auth extends React.Component {
             isFormValid,
             formControls
         })
-    }
-
-    validateControl = (value, validation) => {
-        if(!validation) {
-            return true
-        }
-
-        let isValid = true
-        if(validation.required) isValid = value.trim() !== '' && isValid
-        if(validation.email) isValid = is.email(value) && isValid
-        if(validation.minLength) isValid = value.length >= validation.minLength && isValid
-        return isValid
     }
 
     render() {
@@ -86,7 +83,7 @@ export default class Auth extends React.Component {
                     />
                 )
             })
-        
+
         return (
             <div className={styleClasses.Auth}>
                 <div>
@@ -98,17 +95,29 @@ export default class Auth extends React.Component {
                         {inputs}
                         
                         <Button
-                            onClick={this.loginHandler}
+                            onClick={
+                                () => this.props.auth(
+                                    this.state.formControls.email.value,
+                                    this.state.formControls.password.value,
+                                    true
+                                )
+                            }
                             disabled={!this.state.isFormValid}
                         >
-                            Login
+                            Log up
                         </Button>
 
                         <Button
-                            onClick={this.authHandler}
+                            onClick={
+                                () => this.props.auth(
+                                    this.state.formControls.email.value,
+                                    this.state.formControls.password.value,
+                                    false
+                                )
+                            }
                             disabled={!this.state.isFormValid}
                         >
-                            Auth
+                            Log in
                         </Button>
                     </form>
                 </div>
@@ -116,3 +125,5 @@ export default class Auth extends React.Component {
         )
     }
 }
+
+export default Auth
